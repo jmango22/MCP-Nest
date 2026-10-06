@@ -663,6 +663,7 @@ export class McpStrategy extends Server implements CustomTransportStrategy {
         .map((tool) => {
           const schema: Record<string, unknown> = {
             name: tool.metadata.name,
+            title: tool.metadata.title,
             description: tool.metadata.description,
             annotations: tool.metadata.annotations,
             _meta: tool.metadata._meta,
@@ -990,6 +991,7 @@ export class McpStrategy extends Server implements CustomTransportStrategy {
     this.dynamicTools.set(definition.name, {
       metadata: {
         name: definition.name,
+        title: definition.title,
         description: definition.description,
         parameters: definition.parameters ?? z.object({}),
         outputSchema: definition.outputSchema,
